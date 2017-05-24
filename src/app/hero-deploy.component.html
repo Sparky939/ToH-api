@@ -1,0 +1,70 @@
+<h2>Hero On Standby</h2>
+<h3>Choose a Tactic</h3>
+<div *ngIf="hero && enemyHero" class="grid grid-pad">
+	<div id="result-bar" *ngIf="compared">
+		<h3 class="success" *ngIf="winner === 'hero'">You Win!</h3>
+		<h3 class="failure" *ngIf="winner === 'enemy'">You Lose!</h3>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="module hero">
+				<h4 class="hero-card-name">{{hero.name}}</h4>
+				<div class="hero-card-image"></div>
+				<div class="stat-list">
+					<button class="stat-group" (click)="compareStat(0)"
+						[disabled]="compared"
+						[ngClass]="{'success': winner === 'hero' && compared === true && test === 0, 'failure': winner === 'enemy' && compared === true && test === 0}">
+						<span>Strength:</span>
+						<div class="stat-value">{{hero.strength}}</div>
+					</button>
+					<button class="stat-group" (click)="compareStat(1)"
+						[disabled]="compared"
+						[ngClass]="{'success': winner === 'hero' && compared === true && test === 1, 'failure': winner === 'enemy' && compared === true && test === 1}">
+						<span>Speed:</span>
+						<div class="stat-value">{{hero.speed}}</div>
+					</button>
+					<button class="stat-group" (click)="compareStat(2)"
+						[disabled]="compared"
+						[ngClass]="{'success': winner === 'hero' && compared === true && test === 2, 'failure': winner === 'enemy' && compared === true && test === 2}">
+						<span>Intelligence:</span>
+						<div class="stat-value">{{hero.intelligence}}</div>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="flip-container" [ngClass]="{'flipped': compared}">
+				<div class="flipper">
+					<div class="module hero back">
+						<h4 class="hero-card-name">{{enemyHero.name}}</h4>
+						<div class="hero-card-image"></div>
+						<div class="stat-list">
+							<div class="enemy-stat-group"
+								[ngClass]="{'success': winner === 'enemy' && compared === true && test === 0, 'failure': winner === 'hero' && compared === true && test === 0}">
+								<span class="enemy-stat-value">Strength:</span>
+								<div class="enemy-stat-value">{{enemyHero.strength}}</div>
+							</div>
+							<div class="enemy-stat-group"
+								[ngClass]="{'success': winner === 'enemy' && compared === true && test === 1, 'failure': winner === 'hero' && compared === true && test === 1}">
+								<span class="enemy-stat-value">Speed:</span>
+								<div class="enemy-stat-value">{{enemyHero.speed}}</div>
+							</div>
+							<div class="enemy-stat-group"
+								[ngClass]="{'success': winner === 'enemy' && compared === true && test === 2, 'failure': winner === 'hero' && compared === true && test === 2}">
+								<span class="enemy-stat-value">Intelligence:</span>
+								<div class="enemy-stat-value">{{enemyHero.intelligence}}</div>
+							</div>
+						</div>
+					</div>
+					<div class="module-back hero front">
+						<span class="card-back">?</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="result-bar" *ngIf="compared">
+		<button class="btn" (click)="tryAgain()">Try Again?</button>
+	</div>
+
+</div>

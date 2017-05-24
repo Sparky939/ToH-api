@@ -1,0 +1,46 @@
+label {
+  display: inline-block;
+  width: inherit;
+  margin: .5em 0;
+  color: #607D8B;
+  font-weight: bold;
+}
+input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+}
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc; 
+  cursor: auto;
+}
+.details-form {
+	width: 41.666666667%;
+}
+.details-label {
+	padding-top: 7px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-bottom: 0;
+	text-align: right;
+	width: 25%;
+}
+.details-value {
+	padding-left: 15px;
+	padding-right: 15px;
+	display: inline;
+}
+
